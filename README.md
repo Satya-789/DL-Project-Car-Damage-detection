@@ -1,55 +1,28 @@
-🚗 Vehicle Damage Detection (Transfer Learning with PyTorch)
-📌 Project Overview
+# Vehicle Damange Detection App
 
-This project develops a Deep Learning image classification system to automate vehicle damage assessment, focusing on damage location and severity.
+This app let's you drag and drop an image of a car and it will tell you what kind of damage it has.
+The model is trained on third quarter front and rare view hence the picture should capture the third quarter front or rare view of a car. 
 
-It leverages Transfer Learning with a pre-trained ResNet or VGG model in PyTorch, significantly reducing training time while improving accuracy.
+![app](app_screenshot.jpg)
 
-All processes, from data handling to training and evaluation, are contained in:
-📓 damage_prediction.ipynb
+### Model Details
+1. Used ResNet50 for transfer learning
+2. Model was trained on around 1700 images with 6 target classes
+   1. Front Normal
+   1. Front Crushed
+   1. Front Breakage
+   1. Rear Normal
+   1. Rear Crushed
+   1. Rear Breakage
+9. The accuracy on the validation set was around 80%
 
-🎯 Objectives
+### Set Up
 
-🔹 Classification → Identify damage location (front, rear, side) and severity (minor, moderate, severe).
-
-🔹 Transfer Learning → Use pre-trained CNNs (ResNet/VGG) and fine-tune for the specific task.
-
-🔹 PyTorch Implementation → Build a complete, end-to-end deep learning pipeline.
-
-🔹 Evaluation → Visualize performance with a Confusion Matrix.
-
-🛠 Methodology
-
-The project follows a standard computer vision pipeline, enhanced with transfer learning techniques:
-
-1️⃣ Data Preparation & Augmentation
-
-Data Structure: Images organized by class in subfolders (e.g., data/train/front_damage/).
-
-Transformations: Resize, normalize, and augment images (rotations, flips) using torchvision.transforms.
-
-Data Loading: Use ImageFolder and DataLoader for efficient batching.
-
-2️⃣ Model Architecture (Transfer Learning)
-
-Load a pre-trained CNN (e.g., ResNet50 or VGG16) from torchvision.models.
-
-Replace the classifier head with a new fully connected layer matching the number of output classes.
-
-Optionally freeze base layers and train only the new classifier initially.
-
-3️⃣ Training & Evaluation
-
-Device: GPU (cuda) if available.
-
-Loss Function: Cross-Entropy Loss (nn.CrossEntropyLoss) for multi-class classification.
-
-Optimizer: Adam (torch.optim.Adam).
-
-Metrics: Track training/validation loss and accuracy per epoch.
-
-Confusion Matrix: Visualize prediction performance across all classes.
-
-4️⃣ Model Persistence
-
-Save the trained model with torch.save(model.state_dict(), ...) for deployment or future use.
+1. To get started, first install the dependencies using:
+    ```commandline
+     pip install -r requirements.txt
+    ```
+   
+2. Run the streamlit app:
+   ```commandline
+   streamlit run app.py
