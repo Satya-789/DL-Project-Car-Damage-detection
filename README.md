@@ -16,13 +16,4 @@ The model is trained on third quarter front and rare view hence the picture shou
    1. Rear Breakage
 9. The accuracy on the validation set was around 80%
 
-### Set Up
-
-1. To get started, first install the dependencies using:
-    ```commandline
-     pip install -r requirements.txt
-    ```
-   
-2. Run the streamlit app:
-   ```commandline
-   streamlit run app.py
+### Link - https://dl-project-car-damage-detection-project.streamlit.app/
